@@ -1,0 +1,17 @@
+﻿{
+  "name": "async",
+  "version": "1.0.0",
+  "description": "控制并发异步",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "cheerio": "^0.22.0",
+    "superagent": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
