@@ -1,0 +1,35 @@
+
+Problem:
+
+	I'm on Windows 8.
+	I have a spec folder containing a single test file, and when I run:
+
+	istanbul cover _mocha -- -R spec
+
+	Inside that folder, I get:
+
+	C:\Users\alyman\AppData\Roaming\npm\_mocha.CMD:1
+	(function (exports, require, module, __filename, __dirname) { @IF EXIST "%~dp0
+																  ^
+	No coverage information was collected, exit without writing coverage information
+	SyntaxError: Unexpected token ILLEGAL
+		at Module._compile (module.js:439:25)
+		at Module._extensions..js (module.js:474:10)
+		at Object.Module._extensions..js (C:\Users\alyman\AppData\Roaming\npm\node_modules\istanbul\lib\hook.js:101:13)
+		at Module.load (module.js:356:32)
+		at Function.Module._load (module.js:312:12)
+		at Function.Module.runMain (module.js:497:10)
+		at runFn (C:\Users\alyman\AppData\Roaming\npm\node_modules\istanbul\lib\command\common\run-with-cover.js:86:16)
+		at C:\Users\alyman\AppData\Roaming\npm\node_modules\istanbul\lib\command\common\run-with-cover.js:189:17
+		at C:\Users\alyman\AppData\Roaming\npm\node_modules\istanbul\lib\util\file-matcher.js:52:16
+		at C:\Users\alyman\AppData\Roaming\npm\node_modules\istanbul\lib\util\file-matcher.js:35:
+
+
+Answer:
+
+istanbul assumes that the _mocha you specify translates to a JS file which is true in non-windows environments. In a windows environment, this is likely a batch file that is getting loaded by node and, of course, fails.
+
+Providing the relative path to the _mocha JS file should solve this problem. As in:
+
+$ istanbul cover node_modules/mocha/bin/_mocha -- -R spec
+
