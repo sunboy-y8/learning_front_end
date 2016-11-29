@@ -1,0 +1,27 @@
+http://npm.taobao.org/
+
+
+官方:
+
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+
+
+安装模块:
+
+$ cnpm install [name]
+
+
+
+同步模块:
+
+$ cnpm sync connect
+
+$ open https://npm.taobao.org/sync/connect
+
+
+其它命令:
+
+$ cnpm info connect    //(查看某个模块的信息)
+
+
