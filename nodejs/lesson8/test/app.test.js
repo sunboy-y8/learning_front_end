@@ -43,8 +43,11 @@ describe('test/app.test.js', function () {
       .query({n: n})
       .expect(statusCode)
       .end(function (err, res) {
-        res.text.should.equal(expect);
+		 
+			 res.text.should.equal(expect);
         done(err);
+		
+        
       });
   };
   it('should return 0 when n === 0', function (done) {
@@ -68,7 +71,8 @@ describe('test/app.test.js', function () {
   });
 
   it('should throw when n isnt Number', function (done) {
-    testFib('good', 500, 'n should be a Number', done);
+	  testFib('good', 500, 'n should be a number', done);
+	  //testFib('good', 500, 'n should be a Number', done);
   });
 
   // 单独测试一下返回码 500
